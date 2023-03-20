@@ -1,0 +1,36 @@
+{% extends 'maps/base.html' %}
+{% load leaflet_tags %}
+
+
+{% block extrahead %}
+{% leaflet_js %}
+{% leaflet_css %}
+<style>
+
+  .leaflet-container {  /* all maps */
+      height: 800px;
+  }
+
+
+</style>
+{% endblock extrahead %}
+
+{% block content %}
+  {% leaflet_map "mymap" %}
+{% endblock %}
+
+{% block scripts %}
+<script>
+  var mymap = L.map('mymap').setView([8.5678, 76.8908], 15);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+    maxZoom: 15,
+}).addTo(mymap);
+</script>
+{% endblock %}
+
+
+
+
+
