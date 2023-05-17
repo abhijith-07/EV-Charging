@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect
 #from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
-from .forms import CreateUserForm
+from .forms import CreateUserForm, CustomSignupForm
+from allauth.account.views import SignupView
 
 # Create your views here.
 def home(request):
@@ -25,3 +26,13 @@ def register(request):
         form = CreateUserForm()
     context = {'form':form}
     return render(request, 'accounts/register.html', context)
+
+class CustomSignupView(SignupView):
+    def __init__(self):
+        form = CustomSignupForm()
+        if form.is_valid():
+                print("Valid Form Got")
+                form.save()
+                return redirect('home')
+        else:
+            form = CustomSignupForm()

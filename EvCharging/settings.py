@@ -42,9 +42,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
+    
     #apps
     'accounts',
     'maps',
+
+    #leaflet
+    
+    'leaflet',
 
     #all-auth
     'django.contrib.sites',
@@ -57,7 +62,6 @@ INSTALLED_APPS = [
     # 'allauth.socialaccount.providers.facebook',
     # 'allauth.socialaccount.providers.github',
 
-    'leaflet'
 
 ]
 

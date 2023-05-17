@@ -10,15 +10,22 @@
 
             {% if user.is_authenticated %}
             <h2>{{user.first_name}} {{user.last_name}}</h2>
-            <a href="{% url 'account_logout' %}">Logout</a>
+
+            <ul style="list-style: none;">
+                <li><a href="">Profile</a></li>
+                <li><a href="{% url 'maps:register_charging_station' %}">Register Chargers</a></li>
+                <li><a href="{% url 'maps:chargingStations' %}">Maps</a> </li>
+                <li><a href="{% url 'account_logout' %}">Logout</a></li>
+            </ul>
+             
             {% else %}
-            <a href="{% url 'account_login' %}">Login</a>   
+            <ul style="list-style: none;">
+                <li><a href="{% url 'account_login' %}">Login</a></li>
+                <li><a href="{% url 'accounts:account_sign' %}">Register</a></li>
+                
+            </ul>
             {% endif %}
-        </div>
-        <div class="all-links">
-            <a href="{% url 'accounts:register' %}">Register</a>
-            <a href="{% url 'maps:chargingStations' %}"></a>
-        </div>        
+        </div>    
     </body>
 
 </html>
