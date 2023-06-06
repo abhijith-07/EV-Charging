@@ -42,7 +42,7 @@ var markerIcon = L.icon({
 });
 
 var marker = L.marker([latitude , longitude ], { icon: markerIcon }).addTo(mymap);
-var link = '<a href="https://www.youtube.com/"><strong>{{ i.name }}</strong></a>'
+var link = '<a href="{% url "maps:charger_details" id=i.id %}"><strong>{{ i.name }}</strong></a>'
 marker.bindPopup(link).openPopup();;
 {% endfor %}
 

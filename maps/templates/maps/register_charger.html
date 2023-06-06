@@ -13,16 +13,19 @@
 
 
 </style>
+
 {% endblock extrahead %}
 
 {% block content %}
     <h2>Register Your Charger</h2>
     <form method="post">
         {% csrf_token %}
-        {{form.name.label}}{{ form.name }}
+        {{form}}
         <div id="map" style="height: 400px;"></div>
+        
         <button type="submit">Register</button>
     </form>
+
 
     <script type="text/javascript">
         // Create the Leaflet map

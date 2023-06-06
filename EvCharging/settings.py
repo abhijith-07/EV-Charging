@@ -170,6 +170,10 @@ AUTHENTICATION_BACKENDS = [
 
 SITE_ID = 1
 
+ACCOUNT_FORMS = {
+'signup': 'accounts.forms.CustomSignupForm',
+}
+
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
         'SCOPE': [
@@ -188,3 +192,14 @@ LOGIN_REDIRECT_URL = 'accounts:home'
 LOGOUT_REDIRECT_URL = 'accounts:home'
 
 BASE_COUNTRY = 'IN'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'abhitestprojmail@gmail.com'
+EMAIL_HOST_PASSWORD = '5$.F$-gT;8W$5vd'
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+#Custom Username Validators
+ACCOUNT_USERNAME_VALIDATORS = 'accounts.validators.custom_username_validator'

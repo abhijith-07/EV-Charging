@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 #from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
@@ -24,8 +24,26 @@ def register(request):
             return redirect('home')
     else:
         form = CreateUserForm()
+        
     context = {'form':form}
     return render(request, 'accounts/register.html', context)
+
+def profile(request):
+    if request.user.is_authenticated:
+        user = User.objects.get(id = request.user.id)
+        context = {'user':user}
+        return render(request, 'accounts/profile.html', context)
+    else:
+        return HttpResponse("<h1>Error...</h1>")
+
+def edit_profile(request):
+    if request.user.is_authenticated:
+        user = User.objects.get(id = request.user.id)
+        context = {'user':user}
+        return render(request, 'accounts/edit_profile.html', context)
+    else:
+        return HttpResponse("<h1>Error...</h1>")
+
 
 class CustomSignupView(SignupView):
     def __init__(self):

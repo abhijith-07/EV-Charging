@@ -1,0 +1,37 @@
+{% extends 'accounts/base.html' %}
+
+
+{% block extrahead %}
+<style>
+a{
+    text-decoration: none;
+    color: #fff;
+}
+</style>
+{% endblock extrahead %}
+
+{% block content %}
+
+<table>
+    <tr>
+        <td>Username</td>
+        <td>{{ user.username }}</td>
+    </tr>
+    <tr>
+        <td>Email </td>
+        <td><input type="text" placeholder="{{ user.email }}"></td>
+    </tr>
+    <tr>
+        <td>First Name</td>
+        <td><input type="text" placeholder="{{ user.first_name }}"></td>
+    </tr>
+    <tr>
+        <td>First Name</td>
+        <td><input type="text" placeholder="{{ user.last_name }}"></td>
+    </tr>
+</table>
+
+<button type="button" class="btn btn-primary"><a href="">Submit</a></button>
+
+{% endblock content %}
+<h1>Profile Page</h1>
